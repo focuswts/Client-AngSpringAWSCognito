@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { PersonsListComponent } from './persons-list/persons-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 const appRoutes: Routes = [
   {
@@ -32,7 +33,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }), // <-- debugging purposes only
-    AmplifyAngularModule
+    AmplifyAngularModule,
+    MatTableModule,
+    MatIconModule
     ],
 
   providers: [ AmplifyService],
