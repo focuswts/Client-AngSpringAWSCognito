@@ -1,0 +1,19 @@
+{
+    "cognito": {
+        "awscloudformation": {
+            "AuthRoleName": "springangularcognito-20190429130909-authRole",
+            "UnauthRoleArn": "arn:aws:iam::133077978820:role/springangularcognito-20190429130909-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::133077978820:role/springangularcognito-20190429130909-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "springangularcognito-20190429130909-deployment",
+            "UnauthRoleName": "springangularcognito-20190429130909-unauthRole",
+            "StackName": "springangularcognito-20190429130909",
+            "StackId": "arn:aws:cloudformation:us-west-2:133077978820:stack/springangularcognito-20190429130909/0b78afb0-6a99-11e9-8b02-0a605950ff58"
+        },
+        "categories": {
+            "auth": {
+                "cognitoe2b94c6e": {}
+            }
+        }
+    }
+}
