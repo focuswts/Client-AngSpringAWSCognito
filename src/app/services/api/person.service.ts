@@ -1,20 +1,28 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Auth, Cache } from "aws-amplify";
-import { stringify } from "querystring";
-import { CognitoIdToken, CognitoUserSession } from "amazon-cognito-identity-js";
-import { tokenKey } from "@angular/core/src/view";
-import { getToken } from "@angular/router/src/utils/preactivation";
+import { Auth } from "aws-amplify";
 
 @Injectable({
   providedIn: "root"
 })
 export class PersonService {
-  token: String;
+  token: string;
+  apiURL = "//localhost:8080/api/person/persons";
 
   constructor(private http: HttpClient) {
     this.token = this.getToken();
+  }
+
+  //Header Model To API Calls
+  displayHeaders() {
+    var header = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        Authorization: "Bearer" + this.token
+      })
+    };
+    return header;
   }
 
   getToken() {
@@ -25,15 +33,12 @@ export class PersonService {
   }
 
   getAll(): Observable<any> {
-    console.log("Token: " + this.getToken());
-    return this.http.get("//localhost:8080/api/person/persons", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer" + this.token
-      }
-    });
+console.log(this.token);
+    return this.http.get(this.apiURL, this.displayHeaders());
   }
 
-
+  deletePerson(personId:string) {
+    this.http.delete(this.apiURL,this.displayHeaders());
   
+  }
 }

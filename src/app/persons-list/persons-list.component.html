@@ -24,7 +24,7 @@
   <ng-container matColumnDef="options">
     <th mat-header-cell *matHeaderCellDef>options</th>
     <td mat-cell *matCellDef="let person">
-        <mat-icon (click)="deletePerson(" + person.id +")"">
+        <mat-icon (click)=deletePerson(person.id)>
           delete_forever
         </mat-icon>
     </td>

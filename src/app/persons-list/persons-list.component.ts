@@ -21,7 +21,9 @@ this.personService.getAll().subscribe(data => {
   }
 
   deletePerson(id:string){
-console.log(id);
+console.log("Deletado Cliente ID: " + id);
+this.personService.deletePerson(id);
+
   }
 
 }
