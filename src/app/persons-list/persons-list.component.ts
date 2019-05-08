@@ -1,29 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonService } from '../services/api/person.service';
-
-
+import { Component, OnInit } from "@angular/core";
+import { PersonService } from "../services/api/person.service";
+import { Router } from "@angular/router";
+import { getListeners } from "@angular/core/src/render3/discovery_utils";
 
 @Component({
-  selector: 'app-persons-list',
-  templateUrl: './persons-list.component.html',
-  styleUrls: ['./persons-list.component.css']
+  selector: "app-persons-list",
+  templateUrl: "./persons-list.component.html",
+  styleUrls: ["./persons-list.component.css"]
 })
 export class PersonsListComponent implements OnInit {
-
   persons: Array<any>;
-  columnsToDisplay = ['id', 'name','cpf','email','options'];
-  constructor(private personService : PersonService) { }
+  columnsToDisplay = ["id", "name", "cpf", "email", "options"];
+
+  constructor(private router: Router, private personService: PersonService) {}
 
   ngOnInit() {
-this.personService.getAll().subscribe(data => {
-  this.persons = data;
-});
+    console.log("Listando Pessoas(PersonListComponent)");
+
+    this.getList();
   }
 
-  deletePerson(id:string){
-console.log("Deletado Cliente ID: " + id);
-this.personService.deletePerson(id);
-
+  getList() {
+    this.personService.getAll().subscribe(data => {
+      this.persons = data;
+    });
   }
 
+  deletePerson(id: any) {
+    console.log("Deletado Cliente ID: " + id);
+    this.personService
+      .deletePerson(id)
+      .subscribe(() => this.getList());
+  }
+
+  setRoutePersonOBJ(person: any) {
+    console.log("Update");
+    this.personService.setRoutePersonOBJ(person);
+  }
+
+  createPerson() {
+    var person = null;
+    this.router.navigate(["/persons/create"]);
+  }
 }

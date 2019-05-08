@@ -1,6 +1,7 @@
-<h2>Person List</h2>
 
-<table mat-table [dataSource]="persons" class="lessons-table mat-elevation-z8">
+<h2 id="title">Person List</h2>
+
+<table mat-table [dataSource]="persons" id="personList" class="lessons-table mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
     <td mat-cell *matCellDef="let person">{{ person.id }}</td>
@@ -27,9 +28,18 @@
         <mat-icon (click)=deletePerson(person.id)>
           delete_forever
         </mat-icon>
+        <mat-icon (click)=setRoutePersonOBJ(person)>
+          edit
+        </mat-icon>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
   <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
 </table>
+
+<div>
+ <mat-icon (click)=createPerson()>
+add_circle
+ </mat-icon>
+</div>

@@ -1,0 +1,63 @@
+<div class="tp-container">
+    <mat-card>
+      <form
+        #personForm="ngForm"
+        id="personForm"
+        (ngSubmit)="createPerson(personForm.value)"
+      >
+        <mat-card-header>
+              <mat-card-title id="title"
+              ><h2>ADD Person</h2></mat-card-title
+            > 
+  
+        </mat-card-header>
+        <mat-card-content>
+  
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Person Name"
+              ngModel
+              required
+              name="name"
+             
+            />
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Person CPF"
+              ngModel
+              required
+              name="cpf"
+          
+            />
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Person Email"
+             ngModel
+              required
+              name="email"
+         
+            />
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!personForm.form.valid"
+          >
+            Save
+          </button>
+          
+          <a mat-button routerLink="/persons">Cancel</a>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>

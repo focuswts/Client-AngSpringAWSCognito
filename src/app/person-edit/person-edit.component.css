@@ -1,0 +1,15 @@
+#title {
+  position: center;
+}
+
+mat-card-header-text{
+
+}
+
+mat-form-field {
+    text-align: center;
+  display: block;
+  box-sizing: border-box;
+  width: 20%;
+  left:40%;
+}
