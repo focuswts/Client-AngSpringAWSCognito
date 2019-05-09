@@ -2,8 +2,9 @@
   position: center;
 }
 
-mat-card-header-text{
-
+mat-card-header{
+text-align: center;
+display: block;
 }
 
 mat-form-field {

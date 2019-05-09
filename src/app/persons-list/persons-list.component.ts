@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { PersonService } from "../services/api/person.service";
 import { Router } from "@angular/router";
-import { getListeners } from "@angular/core/src/render3/discovery_utils";
 
 @Component({
   selector: "app-persons-list",
